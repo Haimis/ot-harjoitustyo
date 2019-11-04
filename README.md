@@ -1,7 +1,8 @@
-# Otsikko
+# Ohjelmistotekniikka, harjoitustyö
 
-tekstiä
+## Tehtävät
 
-**boldattua tekstiä**
+### Viikko 1
+[komentorivi.txt](https://github.com/Haimis/ot-harjoitustyo/blob/master/laskarit/komentorivi.txt)
 
-*kursivoitua tekstiä*
+[gitlog.txt](https://github.com/Haimis/ot-harjoitustyo/blob/master/laskarit/gitlog.txt)
