@@ -10,6 +10,6 @@
 ### Viikko 2
 [Maksukortti](https://github.com/Haimis/ot-harjoitustyo/tree/master/laskarit/viikko2/Maksukortti)
 
-[Unicafe](https://github.com/Haimis/ot-harjoitustyo/tree/master/laskarit/viikko2)
+[Unicafe](https://github.com/Haimis/ot-harjoitustyo/tree/master/laskarit/viikko2/Unicafe)
 
 [testikattavuus.png](https://github.com/Haimis/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
