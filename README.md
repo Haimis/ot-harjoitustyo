@@ -1,5 +1,15 @@
 # Ohjelmistotekniikka, harjoitustyö
 
+## Soveluus
+
+### Tuntikirjanpito
+
+[Projektin tuntikirjanpito](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+### Vaatimusmäärittely
+
+[Sovelluksen vaatimusmäärittely](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
 ## Tehtävät
 
 ### Viikko 1
