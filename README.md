@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-## Soveluus
+## Sovellus
 
 ### Tuntikirjanpito
 
