@@ -1,25 +1,34 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Kurssilaskuri
 
-## Sovellus
+Kurssilaskurilla voi verrata Euro Stoxx 50 UCITS ETF:n päivän avauskursseja. Toistaiseksi sovelluksella voi verrata kuukauden viiden ensimmäisen päivän keskiavauskurssia haluamansa kuukauden päivien keskiavauskurssiin syöttämällä ajanjakson alkupäivän ja loppupäivän.
 
-### Tuntikirjanpito
+## Dokumentaatio
 
-[Projektin tuntikirjanpito](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Vaatimusmäärittely](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-### Vaatimusmäärittely
+[Tuntikirjanpito](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-[Sovelluksen vaatimusmäärittely](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+## Komentorivitoiminnot
 
-## Tehtävät
+### Ohjelman käynnistäminen
 
-### Viikko 1
-[komentorivi.txt](https://github.com/Haimis/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+Ohjelma käynnistetään juurihakemistosta komennolla
 
-[gitlog.txt](https://github.com/Haimis/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+```
+mvn compile exec:java -Dexec.mainClass=kurssilaskuri.Main
+```
 
-### Viikko 2
-[Maksukortti](https://github.com/Haimis/ot-harjoitustyo/tree/master/laskarit/viikko2/Maksukortti)
+### Testaus
 
-[Unicafe](https://github.com/Haimis/ot-harjoitustyo/tree/master/laskarit/viikko2/Unicafe)
+Testi ajetaan juurihakemistossa komennolla
 
-[testikattavuus.png](https://github.com/Haimis/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
+```
+mvn test
+```
+
+Testikattavuusraportti luodaan juurihakemistossa komennolla
+
+```
+mvn jacoco:report
+```
+Teskikattavuusraportti generoituu tiedostoon _/target/site/jacoco/index.html_ ja sitä voi tarkastella selaimella
