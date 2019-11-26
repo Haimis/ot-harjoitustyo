@@ -6,4 +6,7 @@ Päivä|Kesto (h)|Mitä tein
 12.11.|3|Sovelluksen vaatimusmäärittely
 18.11.|3|Sovelluksen ensimmäiset toiminnallisuudet
 19.11.|2|Pientä refactorointia ja repositorion huoltoa
-yht.|10|
+25.11.|2|Graafinen käyttis, käyttiksen ja ui:n erottaminen
+26.11.|3|Koodin siistimistä, depskujen päivitystä, repositorion huoltoa, viikkotavoitteita
+
+yht.|15|
