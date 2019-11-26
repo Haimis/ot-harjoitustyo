@@ -1,5 +1,5 @@
 
-package kurssilaskuri;
+package kurssilaskuri.logics;
 
 import java.io.IOException;
 import java.util.*;
@@ -17,19 +17,19 @@ public class CoursesService {
         int aver = 0;
         int first = 0;
         double firstAverage = 0;
-        for (DataPoint dp : list.get(0).dataPoints) {
-            if (dp.date >= startDate && dp.date <= endDate) {
+        for (DataPoint dp : this.list.get(0).getDataPoints()) {
+            if (dp.getDate() >= startDate && dp.getDate() <= endDate) {
                 aver++;
-                average = average + dp.open;
+                average = average + dp.getOpen();
             }
-            if (dp.date <= 5) {
+            if (dp.getDate() <= 5) {
                 first++;
-                firstAverage = firstAverage + dp.open;
+                firstAverage = firstAverage + dp.getOpen();
             }
         }
-        double firstPrice = firstAverage/first;
-        double searchPrice = average/aver;
-        double difference = (searchPrice/firstPrice-1)*100;
+        double firstPrice = firstAverage / first;
+        double searchPrice = average / aver;
+        double difference = (searchPrice / firstPrice - 1) * 100;
         String firstResult = String.format("%.2f", firstPrice);
         String searchResult = String.format("%.2f", searchPrice);
         String result = String.format("%.2f", difference);

@@ -1,6 +1,7 @@
 
-package kurssilaskuri;
+package kurssilaskuri.logics;
 
+import kurssilaskuri.logics.DataPoint;
 import java.util.*;
 
 
@@ -13,6 +14,16 @@ public class ETF {
         this.dataPoints = new ArrayList<>();
         
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<DataPoint> getDataPoints() {
+        return dataPoints;
+    }
+    
+    
     
     
     

@@ -1,13 +1,13 @@
 
-package kurssilaskuri;
+package kurssilaskuri.logics;
 
 public class DataPoint {
     int year;
     int month;
     int date;
-    float open;
+    double open;
 
-    public DataPoint(int year, int month, int date, float open) {
+    public DataPoint(int year, int month, int date, double open) {
         this.year = year;
         this.month = month;
         this.date = date;
@@ -18,6 +18,24 @@ public class DataPoint {
     public String toString() {
         return "DataPoint{" + "year=" + year + ", month=" + month + ", date=" + date + ", open=" + open + '}';
     }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public double getOpen() {
+        return open;
+    }
+    
+    
     
     
     

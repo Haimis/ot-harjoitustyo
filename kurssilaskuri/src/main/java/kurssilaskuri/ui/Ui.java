@@ -1,5 +1,5 @@
 
-package kurssilaskuri;
+package kurssilaskuri.ui;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -12,11 +12,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import kurssilaskuri.logics.CoursesService;
 
 public class Ui extends Application {
     CoursesService cs;
     
-        @Override
+    @Override
     public void start(Stage window) throws IOException {
 
         this.cs = new CoursesService();    

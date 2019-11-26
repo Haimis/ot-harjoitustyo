@@ -1,6 +1,8 @@
-package kurssilaskuri;
 
+package kurssilaskuri.logics;
 
+import java.io.IOException;
+import java.util.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -8,9 +10,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ETFTest {
+public class CoursesServiceTest {
+    List<ETF> list;
     
-    public ETFTest() {
+    public CoursesServiceTest() {
     }
     
     @BeforeClass
@@ -22,7 +25,9 @@ public class ETFTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws IOException {
+        DataBuilder d = new DataBuilder();
+        this.list = d.parseData();
     }
     
     @After
@@ -30,14 +35,9 @@ public class ETFTest {
     }
     
     @Test
-    public void name() {
-        ETF etf = new ETF("test");
-        assertEquals("test", etf.name);
+    public void createsListWithContent() {
+        boolean b = (list.size() > 0);
+        assertEquals(true, b);
     }
     
-    @Test
-    public void arrayListCreated() {
-        ETF etf = new ETF("test");
-        assertEquals(0, etf.dataPoints.size());
-    }
 }
