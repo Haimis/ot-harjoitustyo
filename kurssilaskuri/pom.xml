@@ -18,6 +18,11 @@
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-controls</artifactId>
+          <version>13</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -33,6 +38,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.3</version>
+                <configuration>
+                    <mainClass>HelloFX</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -1,90 +1,94 @@
 
 package kurssilaskuri;
 
-import java.util.Scanner;
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-public class Ui {
-    Scanner s;
-
-    public Ui() {
-        this.s = new Scanner(System.in);
-        System.out.println("Tervetuloa käyttämään kurssilaskuria. Sovelluksella voit verrata Xtrackers Euro Stoxx 50 UCITS ETF:n avauskursseja "
-                + "kuukauden viiden ensimmäisen päivän ja valitsemasi ajanjakson välillä.");
-        System.out.println("Paina jotain näppäintä aloittaaksesi");
-    }
+public class Ui extends Application {
+    CoursesService cs;
     
-    public void start(ETF etf) {
-        while(!s.nextLine().equals("1")) {
-            System.out.println("1: sulje sovellus");
-            System.out.println("2: vertaa kursseja");
-            String str = s.nextLine();
-            if (str.equals("2")) {
-                comparePrices(etf);
-            } else if (str.equals("1")) {
-                System.out.println("Suljetaan sovellus");
-                System.out.println("Kiitos käytöstä!");
-                break;
-            } else {
-                System.out.println("Anna kunnollinen komento");
-            }
-        }
-    }
-    
-    public void comparePrices(ETF etf) {
-        int startDate;
-        int endDate;
+        @Override
+    public void start(Stage window) throws IOException {
 
-        System.out.println("Anna vertailujakson aloituspäivä väliltä 1, ..., 31");
-        String str = s.nextLine();
-        if (validateDate(str)) {
-            startDate = Integer.parseInt(str);
-        } else {
-            System.out.println("Anna kunnollinen komento, paina mitä tahansa näppäintä jatkaaksesi");
-            return;
-        }
-        System.out.println("Anna vertailujakson lopetuspäivä väliltä 1, ..., 31:");
-        str = s.nextLine();
-        if (validateDate(str)) {
-            endDate = Integer.parseInt(str);
-        } else {
-            System.out.println("Anna kunnollinen komento, paina mitä tahansa näppäintä jatkaaksesi");
-            return;
-        }   
+        this.cs = new CoursesService();    
+        BorderPane layout = new BorderPane();
+        Button button = new Button("Laske");
+        Label header = new Label("Valitse vertailujakson ensimmäinen ja viimeinen päivämäärä");
         
-        double average = 0;
-        int aver = 0;
-        int first = 0;
-        double firstAverage = 0;
-        for (DataPoint dp : etf.dataPoints) {
-            if (dp.date >= startDate && dp.date <= endDate) {
-                aver++;
-                average = average + dp.open;
-            }
-            if (dp.date <= 5) {
-                first++;
-                firstAverage = firstAverage + dp.open;
-            }
-        }
-        double firstPrice = firstAverage/first;
-        double searchPrice = average/aver;
-        double difference = (searchPrice/firstPrice-1)*100;
-        String result = String.format("%.2f", difference);
+        //sliders
+        Slider firstSlider = new Slider();
+        firstSlider.setMin(1);
+        firstSlider.setMax(31);
+        firstSlider.setValue(1);
 
-        System.out.println("Datan perusteella kuukauden 1.-5. päivän keskikurssi on: " + firstPrice);
-        System.out.println("Vastaavasti kuukauden " + startDate + ".-" + endDate + ". päivän keskikurssi on: " + searchPrice);
-        System.out.println("Osakkeet ovat siis vertailujaksolla keskimäärin " + (result) + "% kalliimpia, kuin kuun alussa");
-        System.out.println("Ero perustuu " + first + " hintatietoon kuun alusta ja " + aver + " hintatietoon valitsemallasi välillä");
-        System.out.println("Paiva mitä tahansa näppäintä jatkaaksesi");
+        Slider lastSlider = new Slider();
+        lastSlider.setMin(1);
+        lastSlider.setMax(31);
+        lastSlider.setValue(31);
+        
+        //dayPicker layout
+        HBox dayPicker = new HBox();
+        Label first = new Label("alkupäivä: ");
+        Label firstDate = new Label("1");
+        Label last = new Label("loppupäivä: ");
+        Label lastDate = new Label("31");
+        dayPicker.getChildren().addAll(first, firstDate, firstSlider, last, lastDate, lastSlider);
+
+        
+        
+        HBox resultBox = new HBox();
+        Label resultBoxheader = new Label("Vertailun tulos: ");
+        Label resultText = new Label("");
+        resultBox.getChildren().addAll(resultBoxheader, resultText);
+        
+        //functions
+        VBox functions = new VBox();
+        functions.getChildren().add(header);
+        functions.getChildren().add(dayPicker);
+        functions.getChildren().add(button);
+        functions.getChildren().add(resultBox);
+        
+        layout.setLeft(functions);
+        
+        button.setOnAction((event) -> {
+            String result = cs.getAverage(Integer.parseInt(firstDate.getText()), Integer.parseInt(lastDate.getText()));
+            resultText.setText(result);
+        });
+
+        firstDate.textProperty().bind(
+            Bindings.format(
+                "%.0f",
+                firstSlider.valueProperty()
+            )
+        );
+        
+        lastDate.textProperty().bind(
+            Bindings.format(
+                "%.0f",
+                lastSlider.valueProperty()
+            )
+        );
+        
+        Scene startScene = new Scene(layout);
+        
+        window.setTitle("Kurssilaskuri");
+        window.setScene(startScene);
+        window.setWidth(800);
+        window.setHeight(400);
+        window.show();
     }
-    
-    public boolean validateDate(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+
+    public static void main(String[] args) {
+        launch(Ui.class);
     }
-    
-    
+  
 }
