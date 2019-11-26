@@ -15,7 +15,7 @@ Kurssilaskurilla voi verrata Euro Stoxx 50 UCITS ETF:n päivän avauskursseja. T
 Ohjelma käynnistetään juurihakemistosta komennolla
 
 ```
-mvn compile exec:java -Dexec.mainClass=kurssilaskuri.Main
+mvn compile exec:java -Dexec.mainClass=kurssilaskuri.Ui
 ```
 
 ### Testaus
