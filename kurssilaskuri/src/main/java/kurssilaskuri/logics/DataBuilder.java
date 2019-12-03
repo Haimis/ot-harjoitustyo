@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,8 +35,8 @@ public class DataBuilder {
     
     
     public ETF read(String fileName) throws IOException {
-
-        BufferedReader csvReader = new BufferedReader(new FileReader("data/" + fileName));  
+        
+        BufferedReader csvReader = new BufferedReader(new FileReader("src/main/resources/data/" + fileName));  
         String line = "";
 
         ETF etf = new ETF(fileName);

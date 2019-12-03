@@ -35,6 +35,23 @@ public class DataPoint {
         return open;
     }
     
+    public String toDate() {
+        String longMonth = "";
+        if (month < 10) {
+            longMonth = "0" + month;
+        } else {
+            longMonth = longMonth + month;
+        }
+        
+        String longDate = "";
+        if (date < 10) {
+            longDate = "0" + date;
+        } else {
+            longDate = longDate + date;
+        }
+        return (year + "-" + longMonth + "-" + longDate);
+    }
+    
     
     
     
