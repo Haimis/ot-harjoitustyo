@@ -17,7 +17,7 @@ Kurssilaskurilla voi verrata Euro Stoxx 50 UCITS ETF:n päivän avauskursseja. T
 Ohjelma käynnistetään juurihakemistosta komennolla
 
 ```
-mvn compile exec:java -Dexec.mainClass=kurssilaskuri.ui.Ui
+mvn compile exec:java -Dexec.mainClass=kurssilaskuri.ui.Main
 ```
 
 ### Testaus
@@ -43,3 +43,12 @@ Checkstyle-raportti luodaan juurihakemistossa komennolla
 mvn jxr:jxr checkstyle:checkstyle
 ```
 Checkstyle-raportti generoituu tiedostoon _/target/site/checkstyle.html_ ja sitä voi tarkastella selaimella
+
+### jarin generointi
+
+jar paketti luodaan komennolla 
+
+```
+mvn package
+```
+Paketti generoituu tiedostoon _/target/_ nimellä kurssilaskuri-1.0-SNAPSHOT.jar. Ohjelma käynnistyy, mutta **datan lukeminen ei toistaiseksi toimi**
