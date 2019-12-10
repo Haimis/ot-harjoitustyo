@@ -1,9 +1,13 @@
 package kurssilaskuri.model;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +28,7 @@ public class DataBuilder {
             try {
                 courseData.add(read(str));
             } catch (IOException ex) {
-                Logger.getLogger(DataBuilder.class.getName()).log(Level.SEVERE, null, ex);
+//                Logger.getLogger(DataBuilder.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Tiedostoa " + str + " ei voitu lukea");
             }
         });
@@ -34,8 +38,13 @@ public class DataBuilder {
     
     
     public Etf read(String fileName) throws IOException {
+
+
+        String path = ("src/main/resources/data/" + fileName);
+        InputStream is = new FileInputStream(path);   
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader csvReader = new BufferedReader(isr);  
         
-        BufferedReader csvReader = new BufferedReader(new FileReader("src/main/resources/data/" + fileName));  
         String line = "";
 
         Etf etf = new Etf(fileName);
