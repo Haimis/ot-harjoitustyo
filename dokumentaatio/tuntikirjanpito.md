@@ -10,4 +10,5 @@ Päivä|Kesto (h)|Mitä tein
 26.11.|3|Koodin siistimistä, depskujen päivitystä, repositorion huoltoa, viikkotavoitteita
 2.12.|3|Pylväsgrafiikka käyttöön, sovelluslogiikan uusimista
 3.12.|2|Jarrin kanssa tappelua, repositorion huoltoa
-yht.|20|
+10.12.|5|Jarrin kanssa tappelua, refactorointia, uusien ominaisuuksien devaamista
+yht.|25|
