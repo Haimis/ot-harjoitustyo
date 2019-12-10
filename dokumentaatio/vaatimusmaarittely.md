@@ -16,10 +16,10 @@ Sovelluksen tarkoituksena on tarjota käyttäjälle helppokäyttöinen käyttöl
 
 Sovellukseen on tallennettu määrättyjen ETF-rahastojen kurssitiedot .csv mudossa. Graafisen käyttöliittymän kautta käyttäjä pystyy muun muassa:
 
-- valitsemaan vertailuun haluamansta ETF-rahastot **(Tehty siten, että halutut rahastot tulevat näkymään valittaviksi, mutta valinta ei vielä toimi)**
-- valitsemaan vertailuun haluamansa ajanjaksot **(Tehty siten, että käyttäjä voi valita vertailuun alku  ja loppupäivämäärän, joiden välistä keskiarvoa verrataan kuun viiteen ensimmäiseen päivään)**
+- valitsemaan vertailuun haluamansta ETF-rahastot **(Tehty)**
+- valitsemaan vertailuun haluamansa ajanjaksot **(Tehty)**
   - (esim. kuukauden kolmen ensimmäisen päivän keskiarvo vs. kuukauden kolmen viimeisen päivän keskiarvo)
-- tulostamaan sekä numeerisen, että graafisen esityksen haluamistaan vertailuista **(Tehty siten, että tulostaa numeerisen vertailun ja kuukauden keskiarvojen graafisen vertailun)**
+- tulostamaan sekä numeerisen, että graafisen esityksen haluamistaan vertailuista **(Tehty siten, että tulostaa numeerisen vertailun, graafinen tässä päivityksessä telakalla)**
 
 ## Jatkokehitysideoita
 
