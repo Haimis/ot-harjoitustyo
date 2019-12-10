@@ -1,7 +1,7 @@
 package kurssilaskuri.logics;
 
 
-import kurssilaskuri.logics.ETF;
+import kurssilaskuri.model.Etf;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -32,13 +32,13 @@ public class ETFTest {
     
     @Test
     public void name() {
-        ETF etf = new ETF("test");
+        Etf etf = new Etf("test");
         assertEquals("test", etf.getName());
     }
     
     @Test
     public void arrayListCreated() {
-        ETF etf = new ETF("test");
+        Etf etf = new Etf("test");
         assertEquals(0, etf.getDataPoints().size());
     }
 }

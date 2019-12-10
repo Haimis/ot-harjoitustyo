@@ -1,15 +1,15 @@
 
-package kurssilaskuri.logics;
+package kurssilaskuri.model;
 
-import kurssilaskuri.logics.DataPoint;
+import kurssilaskuri.model.DataPoint;
 import java.util.*;
 
 
-public class ETF {
+public class Etf {
     String name;
     List<DataPoint> dataPoints;
 
-    public ETF(String name) {
+    public Etf(String name) {
         this.name = name;
         this.dataPoints = new ArrayList<>();
         

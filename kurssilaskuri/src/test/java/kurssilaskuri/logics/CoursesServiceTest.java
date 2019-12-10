@@ -1,6 +1,8 @@
 
 package kurssilaskuri.logics;
 
+import kurssilaskuri.model.Etf;
+import kurssilaskuri.model.DataBuilder;
 import java.io.IOException;
 import java.util.*;
 import org.junit.After;
@@ -11,7 +13,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CoursesServiceTest {
-    List<ETF> list;
+    List<Etf> list;
     
     public CoursesServiceTest() {
     }

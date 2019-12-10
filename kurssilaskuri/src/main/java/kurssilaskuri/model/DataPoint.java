@@ -1,5 +1,5 @@
 
-package kurssilaskuri.logics;
+package kurssilaskuri.model;
 
 public class DataPoint {
     int year;
