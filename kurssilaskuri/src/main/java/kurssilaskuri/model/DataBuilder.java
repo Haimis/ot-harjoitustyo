@@ -39,11 +39,13 @@ public class DataBuilder {
     }
     
     /**
+    * Generates an etf object from given .csv file
     * 
+    * @param   fileName .csv file that should be read
     * 
-    * @param   syote   Käyttäjän antama syöte
+    * @see kurssilaskuri.model.DataBuilder#parseData()
     * 
-    * @return parsed data from .csv files as Etf objects
+    * @return Etf object
     */
     public Etf read(String fileName) throws IOException {
 
