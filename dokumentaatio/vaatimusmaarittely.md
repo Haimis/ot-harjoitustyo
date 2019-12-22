@@ -16,7 +16,7 @@ Sovelluksen tarkoituksena on tarjota käyttäjälle helppokäyttöinen käyttöl
 
 Käyttöliittymä on hyvin yksinkertainen ja koostuu kahdesta liukuvalikosta, joilla käyttäjä voi valita vertailuun haluamansa päivämäärät, sekä valintaruuduista, joista hän voi valita vertailuun haluamansa rahastot. Varsinainen laskenta suoritetaan laske napilla.
 
-KUVA KÄYTTIKSESTÄ
+<img src="https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoliittyma.png" width="500">
 
 ## Perusversion tarjoama toiminnallisuus
 
