@@ -10,26 +10,32 @@ Pörssinoteeratut rahastot (usein käytetään englanninkielistä lyhennettä ET
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen tarkoituksena on tarjota käyttäjälle helppokäyttöinen käyttöliitymä ETF-rahastojen pörssikurssien tarkasteluun yli ajan. Sovelluksessa on mahdollista hakea eri ETF-rahastojen avaushintoja esimerkiksi tiettyinä viikonpäivinä tai kuukausina ja vertailla näitä keskenään.
+Sovelluksen tarkoituksena on tarjota käyttäjälle helppokäyttöinen käyttöliitymä ETF-rahastojen pörssikurssien tarkasteluun yli ajan. Sovelluksessa on mahdollista hakea eri ETF-rahastojen avaushintoja kuukauden sisäisinä ajanjaksoina ja vertailla niitä keskenään.
+
+## Käyttöliittymä
+
+Käyttöliittymä on hyvin yksinkertainen ja koostuu kahdesta liukuvalikosta, joilla käyttäjä voi valita vertailuun haluamansa päivämäärät, sekä valintaruuduista, joista hän voi valita vertailuun haluamansa rahastot. Varsinainen laskenta suoritetaan laske napilla.
+
+KUVA KÄYTTIKSESTÄ
 
 ## Perusversion tarjoama toiminnallisuus
 
 Sovellukseen on tallennettu määrättyjen ETF-rahastojen kurssitiedot .csv mudossa. Graafisen käyttöliittymän kautta käyttäjä pystyy muun muassa:
 
-- valitsemaan vertailuun haluamansta ETF-rahastot **(Tehty)**
-- valitsemaan vertailuun haluamansa ajanjaksot **(Tehty)**
+- valitsemaan vertailuun haluamansta ETF-rahastot
+- valitsemaan vertailuun haluamansa ajanjaksot
   - (esim. kuukauden kolmen ensimmäisen päivän keskiarvo vs. kuukauden kolmen viimeisen päivän keskiarvo)
-- tulostamaan sekä numeerisen, että graafisen esityksen haluamistaan vertailuista **(Tehty siten, että tulostaa numeerisen vertailun, graafinen tässä päivityksessä telakalla)**
+- tulostamaan numeerisen esityksen haluamastaan vertailuista
 
 ## Jatkokehitysideoita
 
-Ajan sallimissa rajoissa sovellusta voidaan laajentaa seuraavilla ominaisuuksilla
-
-- pääkäyttäjä / peruskäyttäjä
-- tietojen tallentaminen tietokantaan
+- jar paketin korjaus
+- javadocin luomisen lisääminen
+- virheilmoitukset epäsoveltuvista ajanjaksoista (alkupäivä ennen loppupäivää) 
 - vertailujen tallentaminen
-- Uuden kurssidatan hakeminen automaattisesti
-- Uusien vertailtavien rahastojen lisääminen käyttöliittymän kautta
+- uuden kurssidatan hakeminen automaattisesti
+- vertailujen automatisointi
+- uusien vertailtavien rahastojen lisääminen käyttöliittymän kautta
 - Tilastolliset mallit vertailun tukena
 
 ## Disclaimer
