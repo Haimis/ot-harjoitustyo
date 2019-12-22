@@ -1,23 +1,26 @@
 package kurssilaskuri.model;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class DataBuilder { 
+public class DataBuilder {
 
     public  DataBuilder() {
         
     }
     
+    /**
+    * Reads .csv files with read() method and adds results to a list
+    * 
+    * @see    kurssilaskuri.model.DataBuilder#read(String)
+    * 
+    * @return parsed data from .csv files as Etf objects
+    */
     public List<Etf> parseData() throws FileNotFoundException, IOException  {
         List<String> dataSources = Arrays.asList("DXET.DE.csv", "DX2J.DE.csv", "EUNN.DE.csv", 
                 "IS3N.DE.csv", "QDVD.DE.csv", "SXR1.DE.csv", "SXR8.DE.csv", "XCS6.DE.csv", 
@@ -28,7 +31,6 @@ public class DataBuilder {
             try {
                 courseData.add(read(str));
             } catch (IOException ex) {
-//                Logger.getLogger(DataBuilder.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Tiedostoa " + str + " ei voitu lukea");
             }
         });
@@ -36,17 +38,17 @@ public class DataBuilder {
         return courseData;        
     }
     
-    
+    /**
+    * 
+    * 
+    * @param   syote   Käyttäjän antama syöte
+    * 
+    * @return parsed data from .csv files as Etf objects
+    */
     public Etf read(String fileName) throws IOException {
 
-
-        String path = ("src/main/resources/data/" + fileName);
-        InputStream is = new FileInputStream(path);   
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader csvReader = new BufferedReader(isr);  
-        
+        BufferedReader csvReader = readerConstructor(fileName);  
         String line = "";
-
         Etf etf = new Etf(fileName);
 
         while ((line = csvReader.readLine()) != null) {
@@ -59,6 +61,15 @@ public class DataBuilder {
             }            
         }
         return etf;
+    }
+    
+    public BufferedReader readerConstructor(String fileName) throws FileNotFoundException {
+        
+        String path = ("src/main/resources/data/" + fileName);
+        InputStream is = new FileInputStream(path);   
+        InputStreamReader isr = new InputStreamReader(is);
+        return new BufferedReader(isr);
+
     }
     
 }

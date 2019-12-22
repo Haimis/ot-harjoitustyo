@@ -1,13 +1,12 @@
 
 package kurssilaskuri.model;
 
-import kurssilaskuri.model.DataPoint;
 import java.util.*;
 
 
 public class Etf {
-    String name;
-    List<DataPoint> dataPoints;
+    private final String name;
+    private List<DataPoint> dataPoints;
 
     public Etf(String name) {
         this.name = name;
@@ -22,10 +21,4 @@ public class Etf {
     public List<DataPoint> getDataPoints() {
         return dataPoints;
     }
-    
-    
-    
-    
-    
-    
 }

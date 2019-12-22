@@ -8,11 +8,7 @@ import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -21,14 +17,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import kurssilaskuri.logics.CoursesService;
 import kurssilaskuri.model.Etf;
 
 public class Ui extends Application {
-    CoursesService cs;
-    
+    private CoursesService cs;
     
     @Override
     public void start(Stage window) throws IOException {
@@ -39,39 +33,13 @@ public class Ui extends Application {
         Text infoBox = new Text(cs.infoBox());
         infoBox.wrappingWidthProperty().set(600);
         
-        
-        
-        //line chart
-//        NumberAxis xAxis = new NumberAxis();
-//        NumberAxis yAxis = new NumberAxis();
-//        xAxis.setLabel("time");
-//        yAxis.setLabel("price difference");
-//        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
-//        XYChart.Series compareETF = new XYChart.Series();
-//        lineChart.setAnimated(false);        
-//        
         //sliders
-        Slider firstSlider = new Slider();
-        firstSlider.setMin(1);
-        firstSlider.setMax(31);
-        firstSlider.setValue(1);
-
-        Slider lastSlider = new Slider();
-        lastSlider.setMin(1);
-        lastSlider.setMax(31);
-        lastSlider.setValue(5);
-
-        Slider firstSlider2 = new Slider();
-        firstSlider2.setMin(1);
-        firstSlider2.setMax(31);
-        firstSlider2.setValue(6);
-
-        Slider lastSlider2 = new Slider();
-        lastSlider2.setMin(1);
-        lastSlider2.setMax(31);
-        lastSlider2.setValue(7);
+        Slider firstSlider = generateSlider(1);
+        Slider lastSlider = generateSlider(5);
+        Slider firstSlider2 = generateSlider(6);
+        Slider lastSlider2 =  generateSlider(7);
         
-        //dayPicker layout
+        //dayPickers
         HBox dayPicker = new HBox();
         Label first = new Label("alkupäivä: ");
         Label firstDate = new Label("1");
@@ -86,18 +54,15 @@ public class Ui extends Application {
         Label lastDate2 = new Label("7");
         dayPicker2.getChildren().addAll(new Label("2. vertailujakso "), first2, firstDate2, firstSlider2, last2, lastDate2, lastSlider2);
         
-        
-
-
         //checkboxs
-        VBox Etfs = new VBox();
+        VBox etfs = new VBox();
         Label head = new Label("Valitse vertailtavat rahastot");
         List<String> checked = new ArrayList<>();
-        Etfs.getChildren().add(head);
+        etfs.getChildren().add(head);
         for (Etf e : cs.getList()) {
             CheckBox cb = new CheckBox(e.getName());
             cb.setIndeterminate(false);
-            Etfs.getChildren().add(cb);
+            etfs.getChildren().add(cb);
             EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
                     if (cb.isSelected()) {
@@ -121,32 +86,20 @@ public class Ui extends Application {
         functions.getChildren().add(infoBox);
         functions.getChildren().add(dayPicker);
         functions.getChildren().add(dayPicker2);
-        functions.getChildren().add(Etfs);
+        functions.getChildren().add(etfs);
         functions.getChildren().add(button);
         functions.getChildren().add(resultBox);
         layout.setLeft(functions);
-//        layout.setCenter(lineChart);
         
         
         //eventHandlers
         button.setOnAction((ActionEvent event) -> {
-//            lineChart.getData().clear();
-//            compareETF.getData().clear();
             String result = cs.generateComparison(checked, Integer.parseInt(firstDate.getText()), Integer.parseInt(lastDate.getText()), 
                     Integer.parseInt(firstDate2.getText()), Integer.parseInt(lastDate2.getText()));
             resultText.setText(result);
-            //test for graphs
-            //List<Double> list = cs.monthlyDifference(checked, Integer.parseInt(firstDate.getText()), Integer.parseInt(lastDate.getText()));
-            //for (int i = 0; i < list.size(); i++) {
-            //    compareETF.getData().add(new XYChart.Data(i + 1, list.get(i)));
-            //}
-            
-//            lineChart.getData().add(compareETF);
             
         });
         
-        
-
         firstDate.textProperty().bind(
             Bindings.format(
                 "%.0f",
@@ -173,7 +126,7 @@ public class Ui extends Application {
                 lastSlider2.valueProperty()
             )
         );
-
+    
         Scene startScene = new Scene(layout);
         
         window.setTitle("Kurssilaskuri");
@@ -185,6 +138,15 @@ public class Ui extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    public Slider generateSlider(int def) {
+        Slider slider = new Slider();
+        slider.setMin(1);
+        slider.setMax(31);
+        slider.setValue(def);
+        
+        return slider;   
     }
 
 }
