@@ -4,13 +4,13 @@ Kurssilaskurilla voi verrata muutamine tunnettujen ETF-rahastojen päivän avaus
 
 ## Dokumentaatio
 
-Käyttöohje
+[Käyttöohje](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
 [Vaatimusmäärittely](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuuri](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-Testausdokumentti
+[Testausdokumentti]()
 
 [Tuntikirjanpito](https://github.com/Haimis/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
