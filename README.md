@@ -16,7 +16,7 @@ Kurssilaskurilla voi verrata muutamine tunnettujen ETF-rahastojen päivän avaus
 
 ## Releaset
 
-Viikko 7
+~~Viikko 7~~ **datan lukeminen ei toimi jar versiossa**
 
 ## Komentorivitoiminnot
 
